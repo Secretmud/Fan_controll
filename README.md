@@ -49,13 +49,14 @@ Source:
 
 ## Connecting everything
 
-TMP36 -> A0
-L293D -> 1 -> D9
-         2 -> D10
-         7 -> D11
-         3&6 -> Motor
+    - TMP36 -> A0
+    - L293D -> 1 -> D9
+        - 2 -> D10
+        - 7 -> D11
+        - 3 -> Motor
+        - 6 -> Motor
 
 
 ## Calculating the log(average)
 
-[Log plot](https://secretmud.github.com/fan_controll/img/log_plot.png)
+![Log plot](https://secretmud.github.com/fan_controll/img/log_plot.png)
