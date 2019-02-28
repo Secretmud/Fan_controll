@@ -39,8 +39,13 @@ Source:
 
 ### L293D
 
-pin 1,2,7 are being used, they are inputs
-pin 3,6 are outputs
+Input pin(s):
+    - 1
+    - 2
+    - 7
+Output pin(s): 
+    - 3
+    - 6
 
 Source:
     http://www.ti.com/lit/ds/symlink/l293.pdf
