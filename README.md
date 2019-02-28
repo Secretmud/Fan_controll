@@ -58,4 +58,4 @@ L293D -> 1 -> D9
 
 ## Calculating the log(average)
 
-[drag]: https://github.com/secretmud/fan_controll/img/log_plot.png
+[Log plot](https://github.com/secretmud/fan_controll/img/log_plot.png)
