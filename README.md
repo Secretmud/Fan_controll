@@ -12,9 +12,7 @@
     - Simulate a fan using a DC-motor
         - Make the fan spin acording to the temp average
             - Use the following interval
-                - temp < 18 = 0%
-                - 18 < temp < 22 = [20%, 40%]
-                - temp > 22 = [40%, 90%]
+                - [20%, 90%]
 
 
 ## Circuit info
