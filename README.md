@@ -39,11 +39,11 @@ Source:
 
 ### L293D
 
-Input pin(s):
+- Input pin(s):
     - 1
     - 2
     - 7
-Output pin(s): 
+- Output pin(s): 
     - 3
     - 6
 
