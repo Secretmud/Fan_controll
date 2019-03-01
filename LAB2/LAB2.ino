@@ -27,7 +27,7 @@ void loop()
     float temps[n];
     for (int x = 0; x < n; x++) 
     {
-        float i = rand() % 50;
+        float i = (rand() % (100 + 1 - 0));
         temps[x] = i; 
     /*    m_v = (analogRead(A0)*(5000.0/1024.0));
         if (m_v == 500.0) {
@@ -64,14 +64,15 @@ void loop()
 
 void fan_speed(float n)
 {
-    //The logarithm to calculate PWM signal from 0 -> 255
-    float val = ((255*log10(n))/6)+20;  
-    int val_percentage = ((val/255)*100);
+    //Calculating PWM signal from 0 -> 255
+    //float val = ((255*log10(n))/6);  
+    float val = ((5.1*pow(n, 2))/200);
+    int val_percentage = ((val/200)*100);
     Serial.println(val); 
     Serial.print("Fan is running at: ");
     Serial.print(val_percentage);
     Serial.println("%");
-    analogWrite(10, val);
+    //analogWrite(10, val);
     delay(15000);
 }
 
@@ -79,19 +80,17 @@ float average(float temps[], int n)
 {
     float holder = 0;
     for (int x = 0; x < n; x++)
-    {
         holder += temps[x];
 
-    }
     Serial.println(holder);
     holder = holder/n;
     Serial.println(holder);
     return holder;
 }
 
-int check_sort(float temps[], int n) //n is the array length 
+int check_sort(float temps[], int n) 
 {
-    if (n == 1 || n == 0) {
+    if (n == 1 || n == 0) { 
         return true;
     } 
     
