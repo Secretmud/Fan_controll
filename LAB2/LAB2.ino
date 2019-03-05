@@ -23,13 +23,13 @@ void loop()
     float m_v;
     float m_v0 = 500.0;
     float t = 10.0;
-    int n = 80; //array length
+    int n = 20; //array length
     float temps[n];
     for (int x = 0; x < n; x++) 
     {
-        float i = (rand() % (100 + 1 - 0));
-        temps[x] = i; 
-    /*    m_v = (analogRead(A0)*(5000.0/1024.0));
+    //    float i = (rand() % (100 + 1 - 0));
+    //    temps[x] = i; 
+        m_v = (analogRead(A0)*(5000.0/1024.0));
         if (m_v == 500.0) {
             temps[x] = 0; 
         
@@ -38,7 +38,6 @@ void loop()
             temps[x] = c; 
         
         } 
-    */
     }
     bool check = check_sort(temps, n);
 
