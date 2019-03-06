@@ -12,7 +12,7 @@
     - Simulate a fan using a DC-motor
         - Make the fan spin acording to the temp average
             - Use the following interval
-                - [20%, 90%]
+                - [0C, 100C]
 
 
 ## Circuit info
