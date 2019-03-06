@@ -10,7 +10,7 @@
         - temps[max]
         - temps[average]
     - Simulate a fan using a DC-motor
-        - Make the fan spin acording to the temp average
+        - Make the fan spin acording to the temp change
             - Use the following interval
                 - [0C, 100C]
 
