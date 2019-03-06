@@ -72,7 +72,3 @@ Source:
         - 3 -> Motor
         - 6 -> Motor
 
-
-## Calculating the log(average)
-
-![Log plot](https://secretmud.github.com/fan_controll/img/log_plot.png)
