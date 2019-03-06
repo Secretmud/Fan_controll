@@ -8,13 +8,19 @@ int check_sort(float temps[], int n);
 void sort(float temps[], int n);
 void swap(float *xp, float *yp);
 float average(float temps, int n);
-void fan_speed(float average);
+void fan_speed(float temps[], int size_arr);
 
+//Pre defined vars
+int pin_two = 10;
+int pin_three = 11;
+int arr[3] = {pin_two, pin_three};
+int pins = 2;
 
 void setup() 
 {
     pinMode(A0, INPUT);
-    pinMode(10, OUTPUT);
+    for (int x = 0; x < pins; x++)
+        pinMode(arr[x], OUTPUT);
     Serial.begin(9600);
 }
 
@@ -27,17 +33,10 @@ void loop()
     float temps[n];
     for (int x = 0; x < n; x++) 
     {
-    //    float i = (rand() % (100 + 1 - 0));
-    //    temps[x] = i; 
-        m_v = (analogRead(A0)*(5000.0/1024.0));
-        if (m_v == 500.0) {
-            temps[x] = 0; 
-        
-        } else {
-            float c = (m_v-m_v0)/t;
-            temps[x] = c; 
-        
-        } 
+        float i = (rand() % (80 - 1) + 20.0);
+        temps[x] = i; 
+    //    m_v = (analogRead(A0)*(5000.0/1024.0));
+    //    float c = (m_v-m_v0)/t;
     }
     bool check = check_sort(temps, n);
 
@@ -58,21 +57,25 @@ void loop()
     Serial.println(temps[n - 1]);
     Serial.print("Average -> ");
     Serial.println(average_temp);
-    fan_speed(average_temp);
+    fan_speed(temps, n);
 }
 
-void fan_speed(float n)
+void fan_speed(float temps[], int size_arr)
 {
     //Calculating PWM signal from 0 -> 255
     //float val = ((255*log10(n))/6);  
-    float val = ((5.1*pow(n, 2))/200);
-    int val_percentage = ((val/200)*100);
-    Serial.println(val); 
-    Serial.print("Fan is running at: ");
-    Serial.print(val_percentage);
-    Serial.println("%");
-    //analogWrite(10, val);
-    delay(15000);
+    for (int x = 0; x < size_arr; x++)
+    {
+        float val = ((5.1*pow(temps[x], 2)+0.1)/200);
+        int val_percentage = ((val/355)*100);
+        Serial.println(val);
+        Serial.print("Fan is running at: ");
+        Serial.print(val_percentage);
+        Serial.println("%");
+        analogWrite(pin_two, temps[0]);
+        analogWrite(pin_three, temps[x]);
+        delay(1000);
+    }
 }
 
 float average(float temps[], int n)
@@ -100,16 +103,15 @@ int check_sort(float temps[], int n)
     return check_sort(temps, n - 1);
 }
 
-void sort(float temps[], int n)//Bubblesort
+void sort(float temps[], int n)
 {
-    float holder;
     for (int x = 0; x < n; x++)
         for (int i = 0; i < n - x - 1; i++)
             if (temps[i] > temps[i + 1])
                 swap(&temps[i], &temps[i + 1]);
 }
 
-void swap(float *xp, float *yp)//Swapping the values in temps
+void swap(float *xp, float *yp)
 { 
     float temp = *xp; 
     *xp = *yp; 
