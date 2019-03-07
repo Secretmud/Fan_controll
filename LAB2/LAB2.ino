@@ -4,7 +4,7 @@
 #include <math.h>
 
 //Prototype declaration
-int check_sort(float temps[], int n);
+bool check_sort(float temps[], int n);
 void sort(float temps[], int n);
 void swap(float *xp, float *yp);
 float average(float temps, int n);
