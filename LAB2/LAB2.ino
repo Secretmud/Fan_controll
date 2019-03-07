@@ -67,7 +67,7 @@ void fan_speed(float temps[], int size_arr)
     for (int x = 0; x < size_arr; x++)
     {
         float val = ((5.1*pow(temps[x], 2)+0.1)/200);
-        int val_percentage = ((val/355)*100);
+        int val_percentage = ((val/255)*100);
         Serial.println(val);
         Serial.print("Fan is running at: ");
         Serial.print(val_percentage);
