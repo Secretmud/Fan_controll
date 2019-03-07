@@ -4,7 +4,7 @@
 #include <math.h>
 
 //Prototype declaration
-bool check_sort(float temps[], int n);
+int check_sort(float temps[], int n);
 void sort(float temps[], int n);
 void swap(float *xp, float *yp);
 float average(float temps, int n);
@@ -38,7 +38,7 @@ void loop()
     //    m_v = (analogRead(A0)*(5000.0/1024.0));
     //    float c = (m_v-m_v0)/t;
     }
-    bool check = check_sort(temps, n);
+    int check = check_sort(temps, n);
 
     if (!check) {
         sort(temps, n);
