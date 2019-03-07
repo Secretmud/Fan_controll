@@ -10,9 +10,9 @@
         - temps[max]
         - temps[average]
     - Simulate a fan using a DC-motor
-        - Make the fan spin acording to the temp average
+        - Make the fan spin acording to the temp change
             - Use the following interval
-                - [20%, 90%]
+                - [0C, 100C]
 
 
 ## Circuit info
@@ -38,14 +38,27 @@ Source:
     https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf
 
 ### L293D
+```
+  ____
+-|1 16|-
+-|2 15|-
+-|3 14|-
+-|4 13|-
+-|5 12|-
+-|6 11|-
+-|7 10|-
+-|8__9|-
 
-- Input pin(s):
-    - 1
-    - 2
-    - 7
-- Output pin(s): 
-    - 3
-    - 6
+```  
+
+
+    - Input pin(s):
+        - 1
+        - 2
+        - 7
+    - Output pin(s): 
+        - 3
+        - 6
 
 Source:
     http://www.ti.com/lit/ds/symlink/l293.pdf
@@ -59,7 +72,3 @@ Source:
         - 3 -> Motor
         - 6 -> Motor
 
-
-## Calculating the log(average)
-
-![Log plot](https://secretmud.github.com/fan_controll/img/log_plot.png)
